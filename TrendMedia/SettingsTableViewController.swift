@@ -21,7 +21,6 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewDidLayoutSubviews()
         
     }
     

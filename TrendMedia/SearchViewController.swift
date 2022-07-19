@@ -14,7 +14,6 @@ class SearchViewController: UIViewController {
 
         // 배경색, 카톡 브랜드 컬러(노란색) -> 초록색의 경우
         setBackgroundColor()
-        showAlert()
     }
     
     

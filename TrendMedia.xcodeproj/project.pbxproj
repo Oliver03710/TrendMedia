@@ -17,6 +17,7 @@
 		AD08A0862884FE3D001CF144 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD08A0852884FE3D001CF144 /* SettingTableViewController.swift */; };
 		AD150B3C28853CD30066CA75 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD150B3B28853CD30066CA75 /* SettingsTableViewController.swift */; };
 		AD150B42288545C70066CA75 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD150B41288545C70066CA75 /* Settings.storyboard */; };
+		AD1FF97E288A3FB300237E19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FF97D288A3FB300237E19 /* MapViewController.swift */; };
 		AD30C22D2886993A00788055 /* TrendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD30C22C2886993A00788055 /* TrendTableViewController.swift */; };
 		AD30C22F2886996200788055 /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD30C22E2886996200788055 /* TrendTableViewCell.swift */; };
 		AD30C23128869ADF00788055 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD30C23028869ADF00788055 /* UIButton+Extensions.swift */; };
@@ -24,6 +25,18 @@
 		AD30C2352886D67800788055 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD30C2342886D67800788055 /* Data.swift */; };
 		AD30C2372886D81B00788055 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD30C2362886D81B00788055 /* SearchTableViewCell.swift */; };
 		AD30C2392886D85700788055 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD30C2382886D85700788055 /* SearchTableViewController.swift */; };
+		AD3B5A6F28A4DB74009B5E9A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AD3B5A6E28A4DB74009B5E9A /* Kingfisher */; };
+		AD3B5A7228A4DB82009B5E9A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = AD3B5A7128A4DB82009B5E9A /* Toast */; };
+		AD9E6DCA2887870000D7F150 /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DC92887870000D7F150 /* SearchMovieTableViewController.swift */; };
+		AD9E6DCC2887876800D7F150 /* SearchMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DCB2887876800D7F150 /* SearchMovieTableViewCell.swift */; };
+		AD9E6DCE28878C9A00D7F150 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DCD28878C9A00D7F150 /* Movie.swift */; };
+		AD9E6DD02887951800D7F150 /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DCF2887951800D7F150 /* MovieInfo.swift */; };
+		AD9E6DD228879A9F00D7F150 /* RecommandCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DD128879A9F00D7F150 /* RecommandCollectionViewController.swift */; };
+		AD9E6DD428879DFD00D7F150 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DD328879DFD00D7F150 /* RecommendCollectionViewCell.swift */; };
+		ADA4B43E2888E74E0035A8C8 /* TendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA4B43D2888E74E0035A8C8 /* TendsTableViewController.swift */; };
+		ADBD8BBA28B385370007BB46 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = ADBD8BB928B385370007BB46 /* Realm */; };
+		ADBD8BBC28B385370007BB46 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADBD8BBB28B385370007BB46 /* RealmSwift */; };
+		ADBD8BBE28B385530007BB46 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBD8BBD28B385530007BB46 /* RealmModel.swift */; };
 		ADE1DA182886400E00D30DC2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1DA172886400E00D30DC2 /* Search.storyboard */; };
 		ADE1DA1A2886404D00D30DC2 /* Trend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1DA192886404D00D30DC2 /* Trend.storyboard */; };
 		ADE1DA1C2886407800D30DC2 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1DA1B2886407800D30DC2 /* Intro.storyboard */; };
@@ -48,6 +61,7 @@
 		AD08A0852884FE3D001CF144 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		AD150B3B28853CD30066CA75 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		AD150B41288545C70066CA75 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		AD1FF97D288A3FB300237E19 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AD30C22C2886993A00788055 /* TrendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewController.swift; sourceTree = "<group>"; };
 		AD30C22E2886996200788055 /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		AD30C23028869ADF00788055 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
@@ -55,6 +69,14 @@
 		AD30C2342886D67800788055 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		AD30C2362886D81B00788055 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AD30C2382886D85700788055 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		AD9E6DC92887870000D7F150 /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
+		AD9E6DCB2887876800D7F150 /* SearchMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewCell.swift; sourceTree = "<group>"; };
+		AD9E6DCD28878C9A00D7F150 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		AD9E6DCF2887951800D7F150 /* MovieInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
+		AD9E6DD128879A9F00D7F150 /* RecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewController.swift; sourceTree = "<group>"; };
+		AD9E6DD328879DFD00D7F150 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADA4B43D2888E74E0035A8C8 /* TendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendsTableViewController.swift; sourceTree = "<group>"; };
+		ADBD8BBD28B385530007BB46 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		ADE1DA172886400E00D30DC2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		ADE1DA192886404D00D30DC2 /* Trend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trend.storyboard; sourceTree = "<group>"; };
 		ADE1DA1B2886407800D30DC2 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
@@ -71,6 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADBD8BBC28B385370007BB46 /* RealmSwift in Frameworks */,
+				ADBD8BBA28B385370007BB46 /* Realm in Frameworks */,
+				AD3B5A7228A4DB82009B5E9A /* Toast in Frameworks */,
+				AD3B5A6F28A4DB74009B5E9A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,33 +124,82 @@
 			children = (
 				AD08A06F2884DDE1001CF144 /* AppDelegate.swift */,
 				AD08A0712884DDE1001CF144 /* SceneDelegate.swift */,
-				ADE1DA232886452C00D30DC2 /* UIViewController+Extensions.swift */,
-				ADE1DA252886478500D30DC2 /* UITextField+Extensions.swift */,
-				AD30C23028869ADF00788055 /* UIButton+Extensions.swift */,
-				AD08A0752884DDE1001CF144 /* Main.storyboard */,
-				AD08A0732884DDE1001CF144 /* ViewController.swift */,
-				AD08A0832884F10D001CF144 /* Home.storyboard */,
-				ADE1DA1B2886407800D30DC2 /* Intro.storyboard */,
-				ADE1DA172886400E00D30DC2 /* Search.storyboard */,
-				AD30C2342886D67800788055 /* Data.swift */,
-				AD30C2382886D85700788055 /* SearchTableViewController.swift */,
-				AD30C2362886D81B00788055 /* SearchTableViewCell.swift */,
-				ADE1DA1F2886440A00D30DC2 /* SearchViewController.swift */,
-				ADE1DA192886404D00D30DC2 /* Trend.storyboard */,
-				AD30C22C2886993A00788055 /* TrendTableViewController.swift */,
-				AD30C22E2886996200788055 /* TrendTableViewCell.swift */,
-				AD30C2322886AC1900788055 /* TextFieldTableViewCell.swift */,
-				ADE1DA2728864BA200D30DC2 /* BucketListTableViewController.swift */,
-				ADE1DA2928864D9D00D30DC2 /* BucketListTableViewCell.swift */,
-				ADE1DA1D288643F600D30DC2 /* TrendViewController.swift */,
-				AD150B41288545C70066CA75 /* Settings.storyboard */,
-				AD150B3B28853CD30066CA75 /* SettingsTableViewController.swift */,
-				AD08A0852884FE3D001CF144 /* SettingTableViewController.swift */,
+				ADBD8BB628B369D90007BB46 /* Utility */,
+				AD3B5A7328A4DE1D009B5E9A /* Extensions */,
+				ADBD8BB428B369840007BB46 /* Cells */,
+				ADBD8BB528B369B20007BB46 /* ViewControllers */,
+				ADBD8BB728B369ED0007BB46 /* Storyboards */,
 				AD08A0782884DDE3001CF144 /* Assets.xcassets */,
 				AD08A07A2884DDE3001CF144 /* LaunchScreen.storyboard */,
 				AD08A07D2884DDE3001CF144 /* Info.plist */,
 			);
 			path = TrendMedia;
+			sourceTree = "<group>";
+		};
+		AD3B5A7328A4DE1D009B5E9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADE1DA232886452C00D30DC2 /* UIViewController+Extensions.swift */,
+				ADE1DA252886478500D30DC2 /* UITextField+Extensions.swift */,
+				AD30C23028869ADF00788055 /* UIButton+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADBD8BB428B369840007BB46 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD30C2362886D81B00788055 /* SearchTableViewCell.swift */,
+				AD9E6DD328879DFD00D7F150 /* RecommendCollectionViewCell.swift */,
+				ADE1DA2928864D9D00D30DC2 /* BucketListTableViewCell.swift */,
+				AD9E6DCB2887876800D7F150 /* SearchMovieTableViewCell.swift */,
+				AD30C2322886AC1900788055 /* TextFieldTableViewCell.swift */,
+				AD30C22E2886996200788055 /* TrendTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		ADBD8BB528B369B20007BB46 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD30C22C2886993A00788055 /* TrendTableViewController.swift */,
+				AD08A0732884DDE1001CF144 /* ViewController.swift */,
+				AD30C2382886D85700788055 /* SearchTableViewController.swift */,
+				ADE1DA1F2886440A00D30DC2 /* SearchViewController.swift */,
+				AD1FF97D288A3FB300237E19 /* MapViewController.swift */,
+				ADA4B43D2888E74E0035A8C8 /* TendsTableViewController.swift */,
+				AD9E6DD128879A9F00D7F150 /* RecommandCollectionViewController.swift */,
+				ADE1DA2728864BA200D30DC2 /* BucketListTableViewController.swift */,
+				ADE1DA1D288643F600D30DC2 /* TrendViewController.swift */,
+				AD9E6DC92887870000D7F150 /* SearchMovieTableViewController.swift */,
+				AD150B3B28853CD30066CA75 /* SettingsTableViewController.swift */,
+				AD08A0852884FE3D001CF144 /* SettingTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADBD8BB628B369D90007BB46 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				AD30C2342886D67800788055 /* Data.swift */,
+				AD9E6DCD28878C9A00D7F150 /* Movie.swift */,
+				AD9E6DCF2887951800D7F150 /* MovieInfo.swift */,
+				ADBD8BBD28B385530007BB46 /* RealmModel.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		ADBD8BB728B369ED0007BB46 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				ADE1DA1B2886407800D30DC2 /* Intro.storyboard */,
+				AD08A0752884DDE1001CF144 /* Main.storyboard */,
+				AD08A0832884F10D001CF144 /* Home.storyboard */,
+				ADE1DA172886400E00D30DC2 /* Search.storyboard */,
+				ADE1DA192886404D00D30DC2 /* Trend.storyboard */,
+				AD150B41288545C70066CA75 /* Settings.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +218,12 @@
 			dependencies = (
 			);
 			name = TrendMedia;
+			packageProductDependencies = (
+				AD3B5A6E28A4DB74009B5E9A /* Kingfisher */,
+				AD3B5A7128A4DB82009B5E9A /* Toast */,
+				ADBD8BB928B385370007BB46 /* Realm */,
+				ADBD8BBB28B385370007BB46 /* RealmSwift */,
+			);
 			productName = TrendMedia;
 			productReference = AD08A06C2884DDE1001CF144 /* TrendMedia.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +252,11 @@
 				Base,
 			);
 			mainGroup = AD08A0632884DDE1001CF144;
+			packageReferences = (
+				AD3B5A6D28A4DB74009B5E9A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				AD3B5A7028A4DB82009B5E9A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = AD08A06D2884DDE1001CF144 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,7 +291,9 @@
 			files = (
 				AD08A0862884FE3D001CF144 /* SettingTableViewController.swift in Sources */,
 				AD30C2392886D85700788055 /* SearchTableViewController.swift in Sources */,
+				AD1FF97E288A3FB300237E19 /* MapViewController.swift in Sources */,
 				AD30C23128869ADF00788055 /* UIButton+Extensions.swift in Sources */,
+				ADBD8BBE28B385530007BB46 /* RealmModel.swift in Sources */,
 				ADE1DA2A28864D9D00D30DC2 /* BucketListTableViewCell.swift in Sources */,
 				ADE1DA2828864BA200D30DC2 /* BucketListTableViewController.swift in Sources */,
 				ADE1DA202886440A00D30DC2 /* SearchViewController.swift in Sources */,
@@ -213,14 +301,21 @@
 				AD30C22D2886993A00788055 /* TrendTableViewController.swift in Sources */,
 				AD08A0742884DDE1001CF144 /* ViewController.swift in Sources */,
 				ADE1DA242886452C00D30DC2 /* UIViewController+Extensions.swift in Sources */,
+				AD9E6DD228879A9F00D7F150 /* RecommandCollectionViewController.swift in Sources */,
 				AD30C2332886AC1900788055 /* TextFieldTableViewCell.swift in Sources */,
 				AD08A0702884DDE1001CF144 /* AppDelegate.swift in Sources */,
+				AD9E6DD02887951800D7F150 /* MovieInfo.swift in Sources */,
 				AD30C2372886D81B00788055 /* SearchTableViewCell.swift in Sources */,
 				AD30C22F2886996200788055 /* TrendTableViewCell.swift in Sources */,
+				AD9E6DCE28878C9A00D7F150 /* Movie.swift in Sources */,
 				ADE1DA262886478500D30DC2 /* UITextField+Extensions.swift in Sources */,
+				AD9E6DCA2887870000D7F150 /* SearchMovieTableViewController.swift in Sources */,
 				ADE1DA1E288643F600D30DC2 /* TrendViewController.swift in Sources */,
 				AD08A0722884DDE1001CF144 /* SceneDelegate.swift in Sources */,
+				AD9E6DCC2887876800D7F150 /* SearchMovieTableViewCell.swift in Sources */,
 				AD30C2352886D67800788055 /* Data.swift in Sources */,
+				ADA4B43E2888E74E0035A8C8 /* TendsTableViewController.swift in Sources */,
+				AD9E6DD428879DFD00D7F150 /* RecommendCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +535,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AD3B5A6D28A4DB74009B5E9A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		AD3B5A7028A4DB82009B5E9A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AD3B5A6E28A4DB74009B5E9A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD3B5A6D28A4DB74009B5E9A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		AD3B5A7128A4DB82009B5E9A /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD3B5A7028A4DB82009B5E9A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		ADBD8BB928B385370007BB46 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		ADBD8BBB28B385370007BB46 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD08A0642884DDE1001CF144 /* Project object */;
 }

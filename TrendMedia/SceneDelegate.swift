@@ -13,10 +13,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+
+        
+//        guard let scene = (scene as? UIWindowScene) else { return }
+//
+//        window = UIWindow(windowScene: scene)
+//
+//        UserDefaults.standard.set(false, forKey: "First") // true이면 ViewController / false이면 SearchMovieTableViewController -> 다른 화면에 구현, 이유는 같은 저장값
+//
+//        if UserDefaults.standard.bool(forKey: "First") {
+//
+//            let sb = UIStoryboard(name: "Trend", bundle: nil)
+//            guard let vc = sb.instantiateViewController(withIdentifier: "StartingViewController") as? StartingViewController else { return }
+//
+//            window?.rootViewController = vc
+//        } else {
+//
+//            let sb = UIStoryboard(name: "Settings", bundle: nil)
+//            guard let vc = sb.instantiateViewController(withIdentifier: "SearchMovieTableViewController") as? SearchMovieTableViewController else { return }
+//
+//            window?.rootViewController = UINavigationController(rootViewController: vc)
+//        }
+//
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

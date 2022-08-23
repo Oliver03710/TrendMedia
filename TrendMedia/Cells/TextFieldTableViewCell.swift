@@ -9,12 +9,18 @@ import UIKit
 
 class TextFieldTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var shoppingTextField: UITextField!
+    // MARK: - Properties
     
+    @IBOutlet weak var shoppingTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
     
     var addButtonAction: (() -> Void)?
     var textFiledAction: (() -> Void)?
+    var reloadAction: (() -> Void)?
+    
+    
+    // MARK: - IBActions
     
     @IBAction func shoppingTextFieldFilled(_ sender: UITextField) {
         textFiledAction?()
@@ -25,6 +31,13 @@ class TextFieldTableViewCell: UITableViewCell {
         addButtonAction?()
     }
     
+    @IBAction func sortButtonTapped(_ sender: UIButton) {
+        reloadAction?()
+    }
+    
+    
+    // MARK: - Helper Functions
+    
     func setUI() {
         addButton.setTitle("추가", for: .normal)
         addButton.clipsToBounds = true
@@ -32,8 +45,15 @@ class TextFieldTableViewCell: UITableViewCell {
         addButton.backgroundColor = .systemGray4
         addButton.setTitleColor(.black, for: .normal)
         
+        sortButton.setTitle("정렬", for: .normal)
+        sortButton.clipsToBounds = true
+        sortButton.layer.cornerRadius = 3
+        sortButton.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        sortButton.setTitleColor(.black, for: .normal)
+        
         shoppingTextField.placeholder = "무엇을 구매하실 건가요?"
         shoppingTextField.backgroundColor = .systemGray5
         shoppingTextField.borderStyle = .none
     }
+    
 }

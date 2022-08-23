@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qdb-s8-gtC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tD2-fE-wMl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -207,7 +207,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fR-bs-4GD">
-                                            <rect key="frame" x="20" y="15" width="254" height="40"/>
+                                            <rect key="frame" x="20" y="15" width="174" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="KQI-DO-Cob"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Y4z-Yx-Gok"/>
@@ -219,7 +219,7 @@
                                             </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-zN-6Ko">
-                                            <rect key="frame" x="294" y="15" width="60" height="40"/>
+                                            <rect key="frame" x="214" y="15" width="60" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Jcb-gv-boS"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="Tjz-3W-Z0h"/>
@@ -233,11 +233,28 @@
                                                 <action selector="addButtonTapped:" destination="hud-dL-jOw" eventType="touchUpInside" id="XGy-qQ-5jL"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewo-nE-Uio">
+                                            <rect key="frame" x="294" y="15" width="60" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="4JN-bX-XPQ"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="GFX-mV-jH0"/>
+                                                <constraint firstAttribute="width" constant="60" id="ila-Cy-9pg"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" systemColor="linkColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="sortButtonTapped:" destination="hud-dL-jOw" eventType="touchUpInside" id="Rdq-OY-fVg"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="ewo-nE-Uio" firstAttribute="centerY" secondItem="7lP-ch-LlT" secondAttribute="centerY" id="FMM-1z-xxe"/>
+                                        <constraint firstItem="ewo-nE-Uio" firstAttribute="leading" secondItem="Cb3-zN-6Ko" secondAttribute="trailing" constant="20" id="RA0-Q5-hCO"/>
                                         <constraint firstItem="1fR-bs-4GD" firstAttribute="leading" secondItem="7lP-ch-LlT" secondAttribute="leading" constant="20" id="byC-Wp-Y9c"/>
+                                        <constraint firstAttribute="trailing" secondItem="ewo-nE-Uio" secondAttribute="trailing" constant="20" id="nbg-JH-ST1"/>
                                         <constraint firstItem="Cb3-zN-6Ko" firstAttribute="leading" secondItem="1fR-bs-4GD" secondAttribute="trailing" constant="20" id="sb3-yh-Ry0"/>
-                                        <constraint firstAttribute="trailing" secondItem="Cb3-zN-6Ko" secondAttribute="trailing" constant="20" id="yQo-nu-WrX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -248,6 +265,7 @@
                                 <connections>
                                     <outlet property="addButton" destination="Cb3-zN-6Ko" id="TH4-yO-Mzy"/>
                                     <outlet property="shoppingTextField" destination="1fR-bs-4GD" id="HNS-Wx-kYj"/>
+                                    <outlet property="sortButton" destination="ewo-nE-Uio" id="68b-dZ-EsY"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrendTableViewCell" rowHeight="66" id="mM1-BT-WQp" customClass="TrendTableViewCell" customModule="TrendMedia" customModuleProvider="target">
@@ -310,10 +328,11 @@
                             <outlet property="delegate" destination="Qdb-s8-gtC" id="wBv-Ai-0rf"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="XYk-Io-iv2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2v-HD-mn8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876.8115942028987" y="77.678571428571431"/>
+            <point key="canvasLocation" x="2965.217391304348" y="77.678571428571431"/>
         </scene>
         <!--Recommand Collection View Controller-->
         <scene sceneID="RDI-ik-NWp">
@@ -362,7 +381,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puJ-Bl-sI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2908.6956521739135" y="77.678571428571431"/>
+            <point key="canvasLocation" x="3818.8405797101454" y="77.678571428571431"/>
         </scene>
         <!--Tends Table View Controller-->
         <scene sceneID="QD1-it-WGM">
@@ -427,7 +446,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JS-yl-Fef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3889.8550724637685" y="78.348214285714278"/>
+            <point key="canvasLocation" x="4800" y="78.348214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Se-Sg-nrT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tD2-fE-wMl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2cE-6R-c7Z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qdb-s8-gtC" kind="relationship" relationship="rootViewController" id="HG2-rm-Q96"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fpC-Xm-jo1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053.6231884057975" y="77.678571428571431"/>
         </scene>
     </scenes>
     <resources>

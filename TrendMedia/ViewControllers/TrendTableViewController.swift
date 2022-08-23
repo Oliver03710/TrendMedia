@@ -14,20 +14,29 @@ struct ListStatus {
     var favouriteButton: Bool
 }
 
+protocol TransferDataDelegate {
+    func listInfo(checked: Bool, Favourite: Bool, list: String, date: Date)
+}
+
 class TrendTableViewController: UITableViewController {
 
     // MARK: - Properties
     
-    var list: [ListStatus] = [] {
-        didSet {
-            tableView.reloadData()
-            print("list가 변경됨! \(list), \(oldValue)")
-        }
-    }
+//    var list: [ListStatus] = [] {
+//        didSet {
+//            tableView.reloadData()
+//            print("list가 변경됨! \(list), \(oldValue)")
+//        }
+//    }
     
     let localRealm = try! Realm()
-    var tasks: Results<ShoppingList>!
+    var tasks: Results<ShoppingList>! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
+    var delegate: TransferDataDelegate?
     
     // MARK: - Init
     
@@ -94,14 +103,39 @@ class TrendTableViewController: UITableViewController {
             cell.addButtonAction = {
                 
                 guard let text = cell.shoppingTextField.text else { return }
-                
+                guard !text.isEmpty else { return }
                 let task = ShoppingList(contents: text, registeredDate: Date())
                 
                 try! self.localRealm.write {
                     self.localRealm.add(task)
                     print("Realm Succeed")
+                    self.tableView.reloadData()
                 }
-                tableView.reloadData()
+                cell.shoppingTextField.text = nil
+            }
+            
+            cell.reloadAction = {
+                
+                let sortByChecked = UIAction(title: "선택 기준 정렬", image: UIImage(systemName: "checklist")) { _ in
+                    self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "checkButton", ascending: false)
+                }
+                
+                let sortByFavourite = UIAction(title: "즐겨찾기 기준 정렬", image: UIImage(systemName: "list.star")) { _ in
+                    self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "favouriteButton", ascending: false)
+                }
+                
+                let sortByTodo = UIAction(title: "할일 기준 정렬", image: UIImage(systemName: "list.bullet.rectangle.portrait")) { _ in
+                    self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "contents", ascending: true)
+                }
+                
+                let sortByDate = UIAction(title: "등록일 기준 정렬", image: UIImage(systemName: "folder.badge.plus")) { _ in
+                    self.tasks = self.localRealm.objects(ShoppingList.self).sorted(byKeyPath: "registeredDate", ascending: true)
+                }
+                
+                cell.sortButton.showsMenuAsPrimaryAction = true
+                cell.sortButton.menu = UIMenu(options: .displayInline, children: [sortByTodo, sortByChecked, sortByFavourite, sortByDate])
+                
+                print("Reload Action")
             }
             
             return cell
@@ -131,13 +165,15 @@ class TrendTableViewController: UITableViewController {
             cell.favouriteButton.setImage(UIImage(systemName: values), for: .normal)
             cell.favouriteButton.addTarget(self, action: #selector(favouriteButtonClicked(sender:)), for: .touchUpInside)
             
+            delegate?.listInfo(checked: tasks[indexPath.row].checkButton, Favourite: tasks[indexPath.row].favouriteButton, list: tasks[indexPath.row].contents, date: tasks[indexPath.row].registeredDate)
+            
             return cell
             
         } else {
            
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrendTableViewCell", for: indexPath) as! TrendTableViewCell
             
-            cell.shoppingListLabel.text = list[indexPath.row].title
+            cell.shoppingListLabel.text = tasks[indexPath.row].contents
             cell.shoppingListLabel.font = .systemFont(ofSize: 18)
             
             return cell
@@ -161,6 +197,9 @@ class TrendTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = DetailListViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -27,6 +27,8 @@
 		AD30C2392886D85700788055 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD30C2382886D85700788055 /* SearchTableViewController.swift */; };
 		AD3B5A6F28A4DB74009B5E9A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AD3B5A6E28A4DB74009B5E9A /* Kingfisher */; };
 		AD3B5A7228A4DB82009B5E9A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = AD3B5A7128A4DB82009B5E9A /* Toast */; };
+		AD52297F28B4D5A600811043 /* DetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD52297E28B4D5A600811043 /* DetailListViewController.swift */; };
+		AD52298328B4D9CD00811043 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AD52298228B4D9CD00811043 /* SnapKit */; };
 		AD9E6DCA2887870000D7F150 /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DC92887870000D7F150 /* SearchMovieTableViewController.swift */; };
 		AD9E6DCC2887876800D7F150 /* SearchMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DCB2887876800D7F150 /* SearchMovieTableViewCell.swift */; };
 		AD9E6DCE28878C9A00D7F150 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9E6DCD28878C9A00D7F150 /* Movie.swift */; };
@@ -69,6 +71,7 @@
 		AD30C2342886D67800788055 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		AD30C2362886D81B00788055 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AD30C2382886D85700788055 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		AD52297E28B4D5A600811043 /* DetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListViewController.swift; sourceTree = "<group>"; };
 		AD9E6DC92887870000D7F150 /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
 		AD9E6DCB2887876800D7F150 /* SearchMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewCell.swift; sourceTree = "<group>"; };
 		AD9E6DCD28878C9A00D7F150 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 				ADBD8BBA28B385370007BB46 /* Realm in Frameworks */,
 				AD3B5A7228A4DB82009B5E9A /* Toast in Frameworks */,
 				AD3B5A6F28A4DB74009B5E9A /* Kingfisher in Frameworks */,
+				AD52298328B4D9CD00811043 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				AD30C22C2886993A00788055 /* TrendTableViewController.swift */,
+				AD52297E28B4D5A600811043 /* DetailListViewController.swift */,
 				AD08A0732884DDE1001CF144 /* ViewController.swift */,
 				AD30C2382886D85700788055 /* SearchTableViewController.swift */,
 				ADE1DA1F2886440A00D30DC2 /* SearchViewController.swift */,
@@ -223,6 +228,7 @@
 				AD3B5A7128A4DB82009B5E9A /* Toast */,
 				ADBD8BB928B385370007BB46 /* Realm */,
 				ADBD8BBB28B385370007BB46 /* RealmSwift */,
+				AD52298228B4D9CD00811043 /* SnapKit */,
 			);
 			productName = TrendMedia;
 			productReference = AD08A06C2884DDE1001CF144 /* TrendMedia.app */;
@@ -256,6 +262,7 @@
 				AD3B5A6D28A4DB74009B5E9A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				AD3B5A7028A4DB82009B5E9A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				AD52298128B4D9CD00811043 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = AD08A06D2884DDE1001CF144 /* Products */;
 			projectDirPath = "";
@@ -304,6 +311,7 @@
 				AD9E6DD228879A9F00D7F150 /* RecommandCollectionViewController.swift in Sources */,
 				AD30C2332886AC1900788055 /* TextFieldTableViewCell.swift in Sources */,
 				AD08A0702884DDE1001CF144 /* AppDelegate.swift in Sources */,
+				AD52297F28B4D5A600811043 /* DetailListViewController.swift in Sources */,
 				AD9E6DD02887951800D7F150 /* MovieInfo.swift in Sources */,
 				AD30C2372886D81B00788055 /* SearchTableViewCell.swift in Sources */,
 				AD30C22F2886996200788055 /* TrendTableViewCell.swift in Sources */,
@@ -553,6 +561,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		AD52298128B4D9CD00811043 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -573,6 +589,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AD3B5A7028A4DB82009B5E9A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		AD52298228B4D9CD00811043 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD52298128B4D9CD00811043 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		ADBD8BB928B385370007BB46 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;

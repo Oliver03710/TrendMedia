@@ -49,13 +49,21 @@ class DetailListViewController: UIViewController {
         return label
     }()
     
+    let imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.layer.masksToBounds = true
+        return iv
+    }()
+    
     lazy var verticalStackView: UIStackView = {
-        let sv = UIStackView(arrangedSubviews: [listLabel, registeredDateLabel, checkedImageView, favouriteImageView])
-        sv.axis = .vertical
-        sv.spacing = 40
-        sv.distribution = .equalSpacing
+        let sv = UIStackView(arrangedSubviews: [checkedImageView, favouriteImageView])
+        sv.axis = .horizontal
+        sv.spacing = 20
+        sv.distribution = .fillProportionally
         return sv
     }()
+    
     
     // MARK: - Init
     
@@ -71,11 +79,48 @@ class DetailListViewController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .white
-        [verticalStackView].forEach { view.addSubview($0) }
+        [imageView, listLabel, registeredDateLabel, verticalStackView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
-        verticalStackView.snp.makeConstraints { $0.centerX.centerY.equalTo(self.view) }
+        
+        imageView.snp.makeConstraints { make in
+            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-16)
+            make.height.equalTo(imageView.snp.width).multipliedBy(1)
+        }
+        
+        listLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.height.equalTo(32)
+            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-16)
+        }
+        
+        registeredDateLabel.snp.makeConstraints { make in
+            make.top.equalTo(listLabel.snp.bottom).offset(16)
+            make.height.equalTo(32)
+            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-16)
+        }
+        
+        verticalStackView.snp.makeConstraints { make in
+            make.top.equalTo(registeredDateLabel.snp.bottom).offset(16)
+//            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+//            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-16)
+            make.centerX.equalTo(view.snp.centerX)
+        }
+        
+        checkedImageView.snp.makeConstraints { make in
+            make.height.equalTo(28)
+            make.width.equalTo(checkedImageView.snp.height).multipliedBy(1)
+        }
+
+        favouriteImageView.snp.makeConstraints { make in
+            make.height.equalTo(28)
+            make.width.equalTo(favouriteImageView.snp.height).multipliedBy(1)
+        }
         
     }
 

@@ -14,7 +14,8 @@ class TrendTableViewCell: UITableViewCell {
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var shoppingListLabel: UILabel!
-
+    @IBOutlet weak var SampleImageView: UIImageView!
+    
     
     // MARK: - Helper Functions
     
@@ -22,5 +23,7 @@ class TrendTableViewCell: UITableViewCell {
         shoppingListLabel.font = .systemFont(ofSize: 18)
         checkboxButton.tintColor = .black
         favouriteButton.tintColor = .black
+        SampleImageView.contentMode = .scaleAspectFill
+        SampleImageView.layer.masksToBounds = true
     }
 }

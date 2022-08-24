@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import PhotosUI
+
 import RealmSwift
 
 struct ListStatus {
@@ -15,8 +17,9 @@ struct ListStatus {
 }
 
 protocol TransferDataDelegate {
-    func listInfo(checked: Bool, Favourite: Bool, list: String, date: Date)
+    func listInfo(checked: Bool, Favourite: Bool, list: String, date: Date, objectId: ObjectId)
 }
+
 
 class TrendTableViewController: UITableViewController {
 
@@ -29,6 +32,16 @@ class TrendTableViewController: UITableViewController {
 //        }
 //    }
     
+    lazy var phPicker: PHPickerViewController = {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        
+        let phPicker = PHPickerViewController(configuration: configuration)
+        phPicker.delegate = self
+        return phPicker
+    }()
+    
     let localRealm = try! Realm()
     var tasks: Results<ShoppingList>! {
         didSet {
@@ -37,6 +50,8 @@ class TrendTableViewController: UITableViewController {
     }
 
     var delegate: TransferDataDelegate?
+    var selectedImage: UIImage?
+    var objectID: ObjectId?
     
     // MARK: - Init
     
@@ -105,13 +120,16 @@ class TrendTableViewController: UITableViewController {
                 guard let text = cell.shoppingTextField.text else { return }
                 guard !text.isEmpty else { return }
                 let task = ShoppingList(contents: text, registeredDate: Date())
-                
+                self.objectID = task.objectId
                 try! self.localRealm.write {
                     self.localRealm.add(task)
                     print("Realm Succeed")
                     self.tableView.reloadData()
                 }
+                self.present(self.phPicker, animated: true)
+                
                 cell.shoppingTextField.text = nil
+                
             }
             
             cell.reloadAction = {
@@ -165,7 +183,13 @@ class TrendTableViewController: UITableViewController {
             cell.favouriteButton.setImage(UIImage(systemName: values), for: .normal)
             cell.favouriteButton.addTarget(self, action: #selector(favouriteButtonClicked(sender:)), for: .touchUpInside)
             
-            delegate?.listInfo(checked: tasks[indexPath.row].checkButton, Favourite: tasks[indexPath.row].favouriteButton, list: tasks[indexPath.row].contents, date: tasks[indexPath.row].registeredDate)
+            tasks.forEach {
+                if tasks[indexPath.row].objectId == $0.objectId {
+                    cell.SampleImageView.image = loadImageFromDocument(fileName: "\($0.objectId).jpg")
+                }
+            }
+            
+            delegate?.listInfo(checked: tasks[indexPath.row].checkButton, Favourite: tasks[indexPath.row].favouriteButton, list: tasks[indexPath.row].contents, date: tasks[indexPath.row].registeredDate, objectId: tasks[indexPath.row].objectId)
             
             return cell
             
@@ -191,6 +215,7 @@ class TrendTableViewController: UITableViewController {
             try! localRealm.write {
                 localRealm.delete(tasks[indexPath.row])
             }
+            removeImageFromDocument(fileName: "\(tasks[indexPath.row]).jpg")
             tableView.reloadData()
         }
     }
@@ -199,6 +224,12 @@ class TrendTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let vc = DetailListViewController()
+        vc.checkedImageView.image = tasks[indexPath.row].checkButton ? UIImage(systemName: "checkmark.square") : UIImage(systemName: "square")
+        vc.favouriteImageView.image = tasks[indexPath.row].favouriteButton ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        vc.listLabel.text = tasks[indexPath.row].contents
+        vc.registeredDateLabel.text = tasks[indexPath.row].registeredDate.toString()
+        vc.imageView.image = loadImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -206,7 +237,42 @@ class TrendTableViewController: UITableViewController {
         if indexPath.section == 0 {
             return 70
         } else {
-            return 40
+            return 150
         }
     }
+}
+
+
+// MARK: - Extension: PHPickerViewControllerDelegate
+
+extension TrendTableViewController: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        phPicker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider,
+           
+            itemProvider.canLoadObject(ofClass: UIImage.self) {
+            
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                
+                self.selectedImage = image as? UIImage
+                if let objectId = self.objectID, let image = self.selectedImage {
+                    self.saveImageToDocument(fileName: "\(objectId).jpg", image: image)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            }
+            
+        } else {
+            print("Error from Picking Photos")
+            
+        }
+        
+    }
+    
 }

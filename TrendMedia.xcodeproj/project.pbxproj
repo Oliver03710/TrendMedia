@@ -39,6 +39,9 @@
 		ADBD8BBA28B385370007BB46 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = ADBD8BB928B385370007BB46 /* Realm */; };
 		ADBD8BBC28B385370007BB46 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADBD8BBB28B385370007BB46 /* RealmSwift */; };
 		ADBD8BBE28B385530007BB46 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBD8BBD28B385530007BB46 /* RealmModel.swift */; };
+		ADC2E9DA28B61A90003D5BBC /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9D928B61A90003D5BBC /* UITableView+Extension.swift */; };
+		ADC2E9DC28B622A6003D5BBC /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9DB28B622A6003D5BBC /* FileManager+Extension.swift */; };
+		ADC2E9DE28B63A71003D5BBC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9DD28B63A71003D5BBC /* Date+Extension.swift */; };
 		ADE1DA182886400E00D30DC2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1DA172886400E00D30DC2 /* Search.storyboard */; };
 		ADE1DA1A2886404D00D30DC2 /* Trend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1DA192886404D00D30DC2 /* Trend.storyboard */; };
 		ADE1DA1C2886407800D30DC2 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1DA1B2886407800D30DC2 /* Intro.storyboard */; };
@@ -80,6 +83,9 @@
 		AD9E6DD328879DFD00D7F150 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADA4B43D2888E74E0035A8C8 /* TendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendsTableViewController.swift; sourceTree = "<group>"; };
 		ADBD8BBD28B385530007BB46 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		ADC2E9D928B61A90003D5BBC /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		ADC2E9DB28B622A6003D5BBC /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		ADC2E9DD28B63A71003D5BBC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		ADE1DA172886400E00D30DC2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		ADE1DA192886404D00D30DC2 /* Trend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trend.storyboard; sourceTree = "<group>"; };
 		ADE1DA1B2886407800D30DC2 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 				ADE1DA232886452C00D30DC2 /* UIViewController+Extensions.swift */,
 				ADE1DA252886478500D30DC2 /* UITextField+Extensions.swift */,
 				AD30C23028869ADF00788055 /* UIButton+Extensions.swift */,
+				ADC2E9D928B61A90003D5BBC /* UITableView+Extension.swift */,
+				ADC2E9DB28B622A6003D5BBC /* FileManager+Extension.swift */,
+				ADC2E9DD28B63A71003D5BBC /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,7 +316,9 @@
 				AD150B3C28853CD30066CA75 /* SettingsTableViewController.swift in Sources */,
 				AD30C22D2886993A00788055 /* TrendTableViewController.swift in Sources */,
 				AD08A0742884DDE1001CF144 /* ViewController.swift in Sources */,
+				ADC2E9DC28B622A6003D5BBC /* FileManager+Extension.swift in Sources */,
 				ADE1DA242886452C00D30DC2 /* UIViewController+Extensions.swift in Sources */,
+				ADC2E9DE28B63A71003D5BBC /* Date+Extension.swift in Sources */,
 				AD9E6DD228879A9F00D7F150 /* RecommandCollectionViewController.swift in Sources */,
 				AD30C2332886AC1900788055 /* TextFieldTableViewCell.swift in Sources */,
 				AD08A0702884DDE1001CF144 /* AppDelegate.swift in Sources */,
@@ -315,6 +326,7 @@
 				AD9E6DD02887951800D7F150 /* MovieInfo.swift in Sources */,
 				AD30C2372886D81B00788055 /* SearchTableViewCell.swift in Sources */,
 				AD30C22F2886996200788055 /* TrendTableViewCell.swift in Sources */,
+				ADC2E9DA28B61A90003D5BBC /* UITableView+Extension.swift in Sources */,
 				AD9E6DCE28878C9A00D7F150 /* Movie.swift in Sources */,
 				ADE1DA262886478500D30DC2 /* UITextField+Extensions.swift in Sources */,
 				AD9E6DCA2887870000D7F150 /* SearchMovieTableViewController.swift in Sources */,

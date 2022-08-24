@@ -24,9 +24,5 @@ class ShoppingList: Object {
         self.favouriteButton = false
         self.registeredDate = registeredDate
     }
-    
-    
-    
-    
-    
+ 
 }

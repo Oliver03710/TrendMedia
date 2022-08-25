@@ -83,7 +83,7 @@ class DetailListViewController: UIViewController {
     }
     
     func setConstraints() {
-        
+
         imageView.snp.makeConstraints { make in
             make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)

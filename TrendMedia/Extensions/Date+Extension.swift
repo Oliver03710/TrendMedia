@@ -9,11 +9,11 @@ import UIKit
 
 extension Date {
     
-    func toString(withFormat format: String = "yyyy. MM. dd. HH:mm") -> String {
+    func toString(withFormat format: String = "yyyy_MM_dd_HH:mm") -> String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .current
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tehran")
+        dateFormatter.timeZone = .current
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.dateFormat = format
         let str = dateFormatter.string(from: self)

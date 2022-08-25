@@ -9,17 +9,7 @@ import UIKit
 import PhotosUI
 
 import RealmSwift
-
-struct ListStatus {
-    var checkButton: Bool
-    var title: String
-    var favouriteButton: Bool
-}
-
-protocol TransferDataDelegate {
-    func listInfo(checked: Bool, Favourite: Bool, list: String, date: Date, objectId: ObjectId)
-}
-
+import Zip
 
 class TrendTableViewController: UITableViewController {
 
@@ -49,15 +39,24 @@ class TrendTableViewController: UITableViewController {
         }
     }
 
-    var delegate: TransferDataDelegate?
     var selectedImage: UIImage?
     var objectID: ObjectId?
+    
     
     // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
         handlingSavedData()
+        setNaviBarButtons()
+        print("Realm is located at:", localRealm.configuration.fileURL!)
+    }
+    
+    func setNaviBarButtons() {
+        
+        let backupButton = UIBarButtonItem(title: "Backup/Restore", style: .plain, target: self, action: #selector(restoreNBackupButtonClicked))
+        
+        navigationItem.rightBarButtonItems = [backupButton]
     }
     
     
@@ -77,6 +76,11 @@ class TrendTableViewController: UITableViewController {
             tasks[sender.tag].favouriteButton.toggle()
         }
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 1)], with: .fade)
+    }
+    
+    @objc func restoreNBackupButtonClicked(sender: UIButton) {
+        let vc = BackupViewController()
+        transitionViewController(vc, transitionStyle: .presentFullNavigation)
     }
     
     
@@ -183,13 +187,13 @@ class TrendTableViewController: UITableViewController {
             cell.favouriteButton.setImage(UIImage(systemName: values), for: .normal)
             cell.favouriteButton.addTarget(self, action: #selector(favouriteButtonClicked(sender:)), for: .touchUpInside)
             
-            tasks.forEach {
-                if tasks[indexPath.row].objectId == $0.objectId {
-                    cell.SampleImageView.image = loadImageFromDocument(fileName: "\($0.objectId).jpg")
+            if !tasks.isEmpty {
+                tasks.forEach {
+                    if tasks[indexPath.row].objectId == $0.objectId {
+                        cell.SampleImageView.image = loadImageFromDocument(fileName: "\($0.objectId).jpg")
+                    }
                 }
             }
-            
-            delegate?.listInfo(checked: tasks[indexPath.row].checkButton, Favourite: tasks[indexPath.row].favouriteButton, list: tasks[indexPath.row].contents, date: tasks[indexPath.row].registeredDate, objectId: tasks[indexPath.row].objectId)
             
             return cell
             
@@ -212,10 +216,12 @@ class TrendTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
+            removeImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
             try! localRealm.write {
                 localRealm.delete(tasks[indexPath.row])
             }
-            removeImageFromDocument(fileName: "\(tasks[indexPath.row]).jpg")
+            
             tableView.reloadData()
         }
     }
@@ -223,14 +229,19 @@ class TrendTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let vc = DetailListViewController()
-        vc.checkedImageView.image = tasks[indexPath.row].checkButton ? UIImage(systemName: "checkmark.square") : UIImage(systemName: "square")
-        vc.favouriteImageView.image = tasks[indexPath.row].favouriteButton ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
-        vc.listLabel.text = tasks[indexPath.row].contents
-        vc.registeredDateLabel.text = tasks[indexPath.row].registeredDate.toString()
-        vc.imageView.image = loadImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
+        if indexPath.section == 1 {
+            let vc = DetailListViewController()
+            vc.checkedImageView.image = tasks[indexPath.row].checkButton ? UIImage(systemName: "checkmark.square") : UIImage(systemName: "square")
+            vc.favouriteImageView.image = tasks[indexPath.row].favouriteButton ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+            vc.listLabel.text = tasks[indexPath.row].contents
+            vc.registeredDateLabel.text = tasks[indexPath.row].registeredDate.toString()
+            vc.imageView.image = loadImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
         
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -260,7 +271,7 @@ extension TrendTableViewController: PHPickerViewControllerDelegate {
                 
                 self.selectedImage = image as? UIImage
                 if let objectId = self.objectID, let image = self.selectedImage {
-                    self.saveImageToDocument(fileName: "\(objectId).jpg", image: image)
+                    self.saveDataToNewFolder(fileName: "\(objectId).jpg", image: image)
                 }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

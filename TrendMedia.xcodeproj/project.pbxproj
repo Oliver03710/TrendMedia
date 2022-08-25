@@ -39,6 +39,11 @@
 		ADBD8BBA28B385370007BB46 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = ADBD8BB928B385370007BB46 /* Realm */; };
 		ADBD8BBC28B385370007BB46 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ADBD8BBB28B385370007BB46 /* RealmSwift */; };
 		ADBD8BBE28B385530007BB46 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBD8BBD28B385530007BB46 /* RealmModel.swift */; };
+		ADC058BB28B761F300C8C005 /* BackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC058BA28B761F300C8C005 /* BackupViewController.swift */; };
+		ADC058BE28B7625B00C8C005 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = ADC058BD28B7625B00C8C005 /* Zip */; };
+		ADC058C028B762C700C8C005 /* UIAlertViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC058BF28B762C700C8C005 /* UIAlertViewController+Extension.swift */; };
+		ADC058C228B7638000C8C005 /* BackupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC058C128B7638000C8C005 /* BackupTableViewCell.swift */; };
+		ADC058C528B763E500C8C005 /* Reusable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC058C428B763E500C8C005 /* Reusable+Protocol.swift */; };
 		ADC2E9DA28B61A90003D5BBC /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9D928B61A90003D5BBC /* UITableView+Extension.swift */; };
 		ADC2E9DC28B622A6003D5BBC /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9DB28B622A6003D5BBC /* FileManager+Extension.swift */; };
 		ADC2E9DE28B63A71003D5BBC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9DD28B63A71003D5BBC /* Date+Extension.swift */; };
@@ -83,6 +88,10 @@
 		AD9E6DD328879DFD00D7F150 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADA4B43D2888E74E0035A8C8 /* TendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendsTableViewController.swift; sourceTree = "<group>"; };
 		ADBD8BBD28B385530007BB46 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		ADC058BA28B761F300C8C005 /* BackupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupViewController.swift; sourceTree = "<group>"; };
+		ADC058BF28B762C700C8C005 /* UIAlertViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+Extension.swift"; sourceTree = "<group>"; };
+		ADC058C128B7638000C8C005 /* BackupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupTableViewCell.swift; sourceTree = "<group>"; };
+		ADC058C428B763E500C8C005 /* Reusable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reusable+Protocol.swift"; sourceTree = "<group>"; };
 		ADC2E9D928B61A90003D5BBC /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		ADC2E9DB28B622A6003D5BBC /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		ADC2E9DD28B63A71003D5BBC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -102,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC058BE28B7625B00C8C005 /* Zip in Frameworks */,
 				ADBD8BBC28B385370007BB46 /* RealmSwift in Frameworks */,
 				ADBD8BBA28B385370007BB46 /* Realm in Frameworks */,
 				AD3B5A7228A4DB82009B5E9A /* Toast in Frameworks */,
@@ -134,6 +144,7 @@
 			children = (
 				AD08A06F2884DDE1001CF144 /* AppDelegate.swift */,
 				AD08A0712884DDE1001CF144 /* SceneDelegate.swift */,
+				ADC058C328B763CF00C8C005 /* Protocols */,
 				ADBD8BB628B369D90007BB46 /* Utility */,
 				AD3B5A7328A4DE1D009B5E9A /* Extensions */,
 				ADBD8BB428B369840007BB46 /* Cells */,
@@ -155,6 +166,7 @@
 				ADC2E9D928B61A90003D5BBC /* UITableView+Extension.swift */,
 				ADC2E9DB28B622A6003D5BBC /* FileManager+Extension.swift */,
 				ADC2E9DD28B63A71003D5BBC /* Date+Extension.swift */,
+				ADC058BF28B762C700C8C005 /* UIAlertViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,6 +180,7 @@
 				AD9E6DCB2887876800D7F150 /* SearchMovieTableViewCell.swift */,
 				AD30C2322886AC1900788055 /* TextFieldTableViewCell.swift */,
 				AD30C22E2886996200788055 /* TrendTableViewCell.swift */,
+				ADC058C128B7638000C8C005 /* BackupTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -177,6 +190,7 @@
 			children = (
 				AD30C22C2886993A00788055 /* TrendTableViewController.swift */,
 				AD52297E28B4D5A600811043 /* DetailListViewController.swift */,
+				ADC058BA28B761F300C8C005 /* BackupViewController.swift */,
 				AD08A0732884DDE1001CF144 /* ViewController.swift */,
 				AD30C2382886D85700788055 /* SearchTableViewController.swift */,
 				ADE1DA1F2886440A00D30DC2 /* SearchViewController.swift */,
@@ -216,6 +230,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		ADC058C328B763CF00C8C005 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ADC058C428B763E500C8C005 /* Reusable+Protocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,6 +260,7 @@
 				ADBD8BB928B385370007BB46 /* Realm */,
 				ADBD8BBB28B385370007BB46 /* RealmSwift */,
 				AD52298228B4D9CD00811043 /* SnapKit */,
+				ADC058BD28B7625B00C8C005 /* Zip */,
 			);
 			productName = TrendMedia;
 			productReference = AD08A06C2884DDE1001CF144 /* TrendMedia.app */;
@@ -272,6 +295,7 @@
 				AD3B5A7028A4DB82009B5E9A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				AD52298128B4D9CD00811043 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				ADC058BC28B7625B00C8C005 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = AD08A06D2884DDE1001CF144 /* Products */;
 			projectDirPath = "";
@@ -315,9 +339,12 @@
 				ADE1DA202886440A00D30DC2 /* SearchViewController.swift in Sources */,
 				AD150B3C28853CD30066CA75 /* SettingsTableViewController.swift in Sources */,
 				AD30C22D2886993A00788055 /* TrendTableViewController.swift in Sources */,
+				ADC058BB28B761F300C8C005 /* BackupViewController.swift in Sources */,
 				AD08A0742884DDE1001CF144 /* ViewController.swift in Sources */,
 				ADC2E9DC28B622A6003D5BBC /* FileManager+Extension.swift in Sources */,
+				ADC058C028B762C700C8C005 /* UIAlertViewController+Extension.swift in Sources */,
 				ADE1DA242886452C00D30DC2 /* UIViewController+Extensions.swift in Sources */,
+				ADC058C228B7638000C8C005 /* BackupTableViewCell.swift in Sources */,
 				ADC2E9DE28B63A71003D5BBC /* Date+Extension.swift in Sources */,
 				AD9E6DD228879A9F00D7F150 /* RecommandCollectionViewController.swift in Sources */,
 				AD30C2332886AC1900788055 /* TextFieldTableViewCell.swift in Sources */,
@@ -334,6 +361,7 @@
 				AD08A0722884DDE1001CF144 /* SceneDelegate.swift in Sources */,
 				AD9E6DCC2887876800D7F150 /* SearchMovieTableViewCell.swift in Sources */,
 				AD30C2352886D67800788055 /* Data.swift in Sources */,
+				ADC058C528B763E500C8C005 /* Reusable+Protocol.swift in Sources */,
 				ADA4B43E2888E74E0035A8C8 /* TendsTableViewController.swift in Sources */,
 				AD9E6DD428879DFD00D7F150 /* RecommendCollectionViewCell.swift in Sources */,
 			);
@@ -589,6 +617,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		ADC058BC28B7625B00C8C005 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -616,6 +652,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ADBD8BB828B385370007BB46 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		ADC058BD28B7625B00C8C005 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADC058BC28B7625B00C8C005 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

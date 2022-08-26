@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RealmSwift
 import SnapKit
 import Zip
 
@@ -23,7 +24,9 @@ class BackupViewController: UIViewController {
     }()
     
     var fileString: String?
-    var selectedCell: String?
+    var index: Int?
+    var task: Results<ShoppingList>!
+    
     
     // MARK: - Init
     
@@ -33,6 +36,10 @@ class BackupViewController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     // MARK: - Selectors
     
@@ -66,11 +73,11 @@ class BackupViewController: UIViewController {
         do {
             let fileName = Date().toString()
             fileString = fileName
-            let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "ShoppingList\(fileName)")
+            let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "ShoppingList_\(fileName)")
             print("Archive Location: \(zipFilePath)")
             
             // Activity View Controller
-            showActivityViewController()
+            showActivityViewController(fileName: fileString)
             
         } catch {
             showAlertMessage(title: "압축에 실패했습니다.")
@@ -109,7 +116,7 @@ class BackupViewController: UIViewController {
         navigationItem.rightBarButtonItems = [backupButton, restoreButton]
     }
     
-    func showActivityViewController() {
+    func showActivityViewController(fileName: String?) {
         
         // 도큐먼트 위치에 백업 파일 확인
         guard let path = documentDirectoryPath() else {
@@ -117,12 +124,12 @@ class BackupViewController: UIViewController {
             return
         }
         
-        guard let file = selectedCell else {
+        guard let file = fileName else {
             showAlertMessage(title: "도큐먼트 위치에 오류가 있습니다.")
             return
         }
         
-        let backupFileURL = path.appendingPathComponent(file)
+        let backupFileURL = path.appendingPathComponent("ShoppingList_\(file).zip")
         
         let vc = UIActivityViewController(activityItems: [backupFileURL], applicationActivities: [])
         self.present(vc, animated: true)
@@ -136,7 +143,9 @@ class BackupViewController: UIViewController {
 extension BackupViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCell = fetchDocumentZipFile()?[indexPath.row]
+        index = indexPath.row
+        task.forEach { removeImageFromDocument(fileName: "\($0.objectId).jpg") }
+        restoreFromCell(urls: fetchDocumentZipFile().0?[indexPath.row])
     }
     
 }
@@ -147,14 +156,14 @@ extension BackupViewController: UITableViewDelegate {
 extension BackupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let int = fetchDocumentZipFile()?.count else { return 0 }
+        guard let int = fetchDocumentZipFile().1?.count else { return 0 }
         return int
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BackupTableViewCell.reuseIdentifier, for: indexPath) as? BackupTableViewCell else { return UITableViewCell() }
         
-        cell.backupLabel.text = fetchDocumentZipFile()?[indexPath.row]
+        cell.backupLabel.text = fetchDocumentZipFile().1?[indexPath.row]
         
         return cell
     }
@@ -190,15 +199,18 @@ extension BackupViewController: UIDocumentPickerDelegate {
         
         if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
             
-            guard let string = selectedCell else { return }
-            let fileURL = path.appendingPathComponent(string)
+            guard let fileName = fetchDocumentZipFile().1?.last else {
+                showAlertMessage(title: "파일 이름 불러오는데 실패했습니다.")
+                return
+            }
+            let fileURL = path.appendingPathComponent(fileName)
             
             do {
                 try Zip.unzipFile(fileURL, destination: path, overwrite: true, password: nil, progress: { progress in
                     print("progress: \(progress)")
                 }, fileOutputHandler: { unzippedFile in
                     print("\(unzippedFile)")
-                    self.showAlertMessage(title: "복구가 완료되었습니다.")
+                    self.showRestoreAlertMessage(title: "복구가 완료되었습니다.")
                 })
                 
             } catch {
@@ -212,7 +224,7 @@ extension BackupViewController: UIDocumentPickerDelegate {
                 // 파일 앱의 zip -> 도큐먼트 폴더에 복사
                 try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
                 
-                guard let fileName = selectedCell else {
+                guard let fileName = fetchDocumentZipFile().1?.last else {
                     showAlertMessage(title: "파일 이름 불러오는데 실패했습니다.")
                     return
                 }
@@ -222,7 +234,7 @@ extension BackupViewController: UIDocumentPickerDelegate {
                     print("progress: \(progress)")
                 }, fileOutputHandler: { unzippedFile in
                     print("\(unzippedFile)")
-                    self.showAlertMessage(title: "복구가 완료되었습니다.")
+                    self.showRestoreAlertMessage(title: "복구가 완료되었습니다.")
                 })
                 
             } catch {

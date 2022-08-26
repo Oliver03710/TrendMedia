@@ -49,7 +49,12 @@ class TrendTableViewController: UITableViewController {
         super.viewDidLoad()
         handlingSavedData()
         setNaviBarButtons()
+        configureTableViewCell()
         print("Realm is located at:", localRealm.configuration.fileURL!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     func setNaviBarButtons() {
@@ -80,6 +85,7 @@ class TrendTableViewController: UITableViewController {
     
     @objc func restoreNBackupButtonClicked(sender: UIButton) {
         let vc = BackupViewController()
+        vc.task = tasks
         transitionViewController(vc, transitionStyle: .presentFullNavigation)
     }
     
@@ -88,6 +94,11 @@ class TrendTableViewController: UITableViewController {
     
     func handlingSavedData() {
         tasks = localRealm.objects(ShoppingList.self).sorted(byKeyPath: "registeredDate", ascending: true)
+    }
+    
+    func configureTableViewCell() {
+//        tableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.reuseIdentifier)
+//        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.reuseIdentifier)
     }
     
     
@@ -115,7 +126,7 @@ class TrendTableViewController: UITableViewController {
         
         if indexPath.section == 0 {
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as? TextFieldTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.reuseIdentifier, for: indexPath) as? TextFieldTableViewCell else { return UITableViewCell() }
             
             cell.setUI()
 
@@ -164,7 +175,7 @@ class TrendTableViewController: UITableViewController {
             
         } else if indexPath.section == 1 {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TrendTableViewCell", for: indexPath) as! TrendTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.reuseIdentifier, for: indexPath) as! TrendTableViewCell
             
             cell.setUI()
             let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: tasks[indexPath.row].contents)
@@ -199,7 +210,7 @@ class TrendTableViewController: UITableViewController {
             
         } else {
            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TrendTableViewCell", for: indexPath) as! TrendTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.reuseIdentifier, for: indexPath) as! TrendTableViewCell
             
             cell.shoppingListLabel.text = tasks[indexPath.row].contents
             cell.shoppingListLabel.font = .systemFont(ofSize: 18)

@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RealmSwift
+import Zip
+
 extension UIViewController {
     
     func documentDirectoryPath() -> URL? {
@@ -38,12 +41,12 @@ extension UIViewController {
         }
     }
     
-    func fetchDocumentZipFile() -> [String]? {
+    func fetchDocumentZipFile() -> ([URL]?, [String]?) {
         
         do {
             guard let path = documentDirectoryPath() else {
                 showAlertMessage(title: "Zip 파일 불러오는데 실패하였습니다.")
-                return nil
+                return (nil, nil)
             }
             
             let docs = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
@@ -55,13 +58,55 @@ extension UIViewController {
             let result = zip.map { $0.lastPathComponent }
             print("Result: \(result)")
             
-            return result
+            return (zip, result)
             
         } catch {
             print("Error")
-            return nil
+            return (nil, nil)
         }
         
+    }
+    
+    func restoreFromCell(urls: URL?) {
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+        
+        guard let selectedFileURL = urls else {
+            showAlertMessage(title: "선택하신 파일을 찾을 수 없습니다.")
+            return
+        }
+        
+        guard let path = documentDirectoryPath() else {
+            showAlertMessage(title: "선택하신 파일을 찾을 수 없습니다.")
+            return
+        }
+        
+        let sandboxFileURL = path.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+            
+            guard let fileName = fetchDocumentZipFile().1?.last else {
+                showAlertMessage(title: "파일 이름 불러오는데 실패했습니다.")
+                return
+            }
+            let fileURL = path.appendingPathComponent(fileName)
+            
+            do {
+                try Zip.unzipFile(fileURL, destination: path, overwrite: true, password: nil, progress: { progress in
+                    print("progress: \(progress)")
+                }, fileOutputHandler: { unzippedFile in
+                    print("\(unzippedFile)")
+                    self.showRestoreAlertMessage(title: "복구가 완료되었습니다.")
+                })
+                
+            } catch {
+                showAlertMessage(title: "압축 해제에 실패했습니다.")
+            }
+            
+        }
     }
     
     func saveDataToNewFolder(fileName: String, image: UIImage) {
